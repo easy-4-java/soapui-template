@@ -10,7 +10,7 @@ https://www.soapui.org
 
 ``` xml
 <dependency>
-	<groupId>com.github.hiwepy</groupId>
+	<groupId>io.github.easy4j</groupId>
 	<artifactId>soapui-template</artifactId>
 	<version>${project.version}</version>
 </dependency>
