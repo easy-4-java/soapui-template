@@ -366,7 +366,7 @@
 		<commons-lang.version>2.6</commons-lang.version>
 		<xmlbeans.version>2.6.0</xmlbeans.version>
 		<google-oauth-client.version>1.39.0</google-oauth-client.version>
-		<junit-jupiter.version>6.1.0</junit-jupiter.version></properties>
+		<junit-jupiter.version>5.11.4</junit-jupiter.version></properties>
         </profile>
         <!-- 发布到 Maven Central Portal：mvn -Prelease deploy（GPG 签名 + 源码 + Javadoc + Central 发布插件） -->
 
