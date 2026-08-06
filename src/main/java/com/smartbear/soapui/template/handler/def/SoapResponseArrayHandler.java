@@ -11,7 +11,7 @@ import com.smartbear.soapui.template.utils.SoapuiResponseUtils;
 
 /**
  * 请求响应处理：返回String对象
- * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
+ * @author [@Loong Wan](https://github.com/loong10k)
  */
 public class SoapResponseArrayHandler implements SoapResponseHandler<String[]> {
  
