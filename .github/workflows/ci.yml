@@ -34,6 +34,16 @@ jobs:
           java-version: '8'
           cache: maven
 
+      - name: Install vendored SoapUI dependency
+        run: |
+          mvn -B --no-transfer-progress install:install-file \
+            -Dfile="SoapUI Jar/com/eviware/soapui/5.4.0/soapui-5.4.0.jar" \
+            -DgroupId=com.eviware \
+            -DartifactId=soapui \
+            -Dversion=5.4.0 \
+            -Dpackaging=jar \
+            -DgeneratePom=true
+
       - name: Build and verify with JaCoCo coverage gate
         run: mvn -B --no-transfer-progress clean verify
 
