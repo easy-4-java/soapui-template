@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-21-orange)](https://github.com/easy-4-java/soapui-template) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+soapui-template（"Opt For SoapUI"）是基于 SoapUI 引擎的轻量级编程封装层。
+
 ## 目录
 
 - [1. Project Overview](#1-project-overview)
