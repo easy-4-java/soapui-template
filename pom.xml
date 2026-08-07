@@ -532,7 +532,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <commons-lang3.version>3.20.0</commons-lang3.version>
         <commons-logging.version>1.2</commons-logging.version>
-        <commons-not-yet-ssl.version>0.3.9</commons-not-yet-ssl.version>
+        <commons-not-yet-ssl.version>0.3.11</commons-not-yet-ssl.version>
         <commons-io.version>2.22.0</commons-io.version>
         <commons-text.version>1.15.0</commons-text.version>
         <contiperf.version>2.3.4</contiperf.version>
@@ -671,7 +671,7 @@
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.commons/not-yet-commons-ssl -->
             <dependency>
-                <groupId>org.apache.commons</groupId>
+                <groupId>ca.juliusdavies</groupId>
                 <artifactId>not-yet-commons-ssl</artifactId>
                 <version>${commons-not-yet-ssl.version}</version>
             </dependency>
@@ -954,7 +954,7 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/not-yet-commons-ssl -->
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>ca.juliusdavies</groupId>
             <artifactId>not-yet-commons-ssl</artifactId>
         </dependency>
         <!-- For Slf4j -->
