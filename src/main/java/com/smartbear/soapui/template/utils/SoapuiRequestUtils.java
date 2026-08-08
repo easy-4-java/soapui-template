@@ -29,6 +29,14 @@ import com.eviware.soapui.impl.wsdl.support.soap.SoapVersion;
 import com.eviware.soapui.support.SoapUIException;
 import com.eviware.soapui.support.xml.XmlUtils;
 
+/**
+ * Utility class for building and extracting SOAP request messages. Provides methods
+ * to populate SOAP XML templates with parameter values using either map-based or
+ * positional array-based parameter binding.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ */
 public class SoapuiRequestUtils {
 	
 	private static void dumpSoap(String message, String soapRequestBody) {
@@ -105,6 +113,16 @@ public class SoapuiRequestUtils {
 		}
 	}
 	
+	/**
+	 * Builds a SOAP message by replacing placeholder values ("?") in the request template
+	 * with positional parameter values from the given array.
+	 *
+	 * @param soapRequestBody the SOAP request XML template containing "?" placeholders
+	 * @param soapVersion     the SOAP version to use for parsing
+	 * @param params          the positional parameter values to substitute
+	 * @return the populated SOAP message XML string
+	 * @throws SoapUIException if an error occurs during XML processing
+	 */
 	public static String buildSoapMessage(String soapRequestBody, SoapVersion soapVersion, String... params) throws SoapUIException {
 		
 		try {
@@ -167,6 +185,16 @@ public class SoapuiRequestUtils {
 		}
 	}
 	
+	/**
+	 * Extracts parameter names and types from a SOAP request XML template.
+	 * Parameters with a value of "?" are classified as type "String".
+	 *
+	 * @param soapRequestBody the SOAP request XML template
+	 * @param soapVersion     the SOAP version to use for parsing
+	 * @param inputNames      output list to collect extracted parameter names
+	 * @param inputTypes      output list to collect extracted parameter types
+	 * @throws SoapUIException if an error occurs during XML processing
+	 */
 	public static void extractRequest(String soapRequestBody, SoapVersion soapVersion, List<String> inputNames, List<String> inputTypes) throws SoapUIException {
 		
 		try {

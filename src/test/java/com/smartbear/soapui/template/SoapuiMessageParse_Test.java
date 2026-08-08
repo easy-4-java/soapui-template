@@ -105,6 +105,5 @@ public class SoapuiMessageParse_Test {
 		System.out.println(XmlUtils.getElementPath(docRoot));
 		
 		System.out.println(SoapuiXmlUtils.getNode(node, "/web:method1[1]"));;*/
-		System.exit(0);
 	}
 }
