@@ -30,16 +30,23 @@ import com.eviware.soapui.support.xml.XmlUtils;
 import com.google.common.collect.Lists;
 
 /**
- * Provides SoapuiResponseUtils functionality for SOAP UI template processing.
- * <p>This component encapsulates reusable behavior used when constructing,
- * configuring, or interpreting SOAP UI requests and responses.</p>
+ * Utility class for parsing SOAP response XML messages. Provides methods to extract
+ * result values from SOAP response bodies into string arrays and to retrieve fault codes.
  *
  * @author [@Loong Wan](https://github.com/loong10k)
  * @since 3.0.0
- * @see SoapuiResponseUtils
  */
 public class SoapuiResponseUtils {
-	
+
+	/**
+	 * Parses a SOAP response XML body and extracts all result values into a string array.
+	 * Supports both nested collection results and simple single-element results.
+	 *
+	 * @param soapResponseBody the SOAP response XML string
+	 * @param soapVersion      the SOAP version used in the response
+	 * @return an array of extracted result values
+	 * @throws SoapUIException if an error occurs during XML processing
+	 */
 	public static String[] parseResponseToArray(String soapResponseBody, SoapVersion soapVersion) throws SoapUIException {
 		
 		try {
@@ -120,6 +127,13 @@ public class SoapuiResponseUtils {
 		
 	}
 
+	/**
+	 * Extracts the SOAP fault code from a SOAP fault response.
+	 *
+	 * @param soapVersion     the SOAP version used in the response
+	 * @param responseContent the SOAP response XML string
+	 * @return the fault code string, or {@code null} if no fault is found
+	 */
 	public static String getFaultCode(SoapVersion soapVersion, String responseContent) {
 		try {
 			XmlObject xmlObject = XmlUtils.createXmlObject(responseContent);

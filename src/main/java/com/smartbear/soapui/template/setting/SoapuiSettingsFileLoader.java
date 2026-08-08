@@ -18,16 +18,20 @@ package com.smartbear.soapui.template.setting;
 import com.eviware.soapui.model.settings.Settings;
 
 /**
- * Provides SoapuiSettingsFileLoader functionality for SOAP UI template processing.
- * <p>This component encapsulates reusable behavior used when constructing,
- * configuring, or interpreting SOAP UI requests and responses.</p>
+ * Strategy interface for loading SOAP UI settings from a file.
  *
  * @author [@Loong Wan](https://github.com/loong10k)
  * @since 3.0.0
- * @see SoapuiSettingsFileLoader
+ * @see com.eviware.soapui.model.settings.Settings
  */
 public interface SoapuiSettingsFileLoader {
 
+	/**
+	 * Loads settings from the specified file path.
+	 *
+	 * @param settingsFile the path to the settings file
+	 * @return the loaded {@link Settings} instance
+	 */
 	Settings load(String settingsFile);
-	
+
 }

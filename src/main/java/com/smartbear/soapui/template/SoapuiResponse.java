@@ -20,13 +20,13 @@ import com.eviware.soapui.model.iface.Response;
 import com.eviware.soapui.model.iface.Submit.Status;
 
 /**
- * Provides SoapuiResponse functionality for SOAP UI template processing.
- * <p>This component encapsulates reusable behavior used when constructing,
- * configuring, or interpreting SOAP UI requests and responses.</p>
+ * Encapsulates the result of a SOAP UI request submission, holding the original
+ * request, the response content, the submission status, and any error that occurred.
  *
+ * @param <T> the type of the HTTP request, must extend {@link AbstractHttpRequestInterface}
  * @author [@Loong Wan](https://github.com/loong10k)
  * @since 3.0.0
- * @see SoapuiResponse
+ * @see AbstractHttpRequestInterface
  */
 public class SoapuiResponse<T extends AbstractHttpRequestInterface<?>> {
 
@@ -35,6 +35,14 @@ public class SoapuiResponse<T extends AbstractHttpRequestInterface<?>> {
 	private final Exception error;
 	private final Response response;
 
+	/**
+	 * Constructs a new SoapuiResponse with the given request, response, status, and error.
+	 *
+	 * @param request  the original SOAP UI request
+	 * @param response the response received from the service
+	 * @param status   the submission status
+	 * @param error    the exception thrown during submission, or {@code null} if successful
+	 */
 	public SoapuiResponse(T request, Response response, Status status, Exception error) {
 		super();
 		this.request = request;
@@ -43,18 +51,38 @@ public class SoapuiResponse<T extends AbstractHttpRequestInterface<?>> {
 		this.error = error;
 	}
 
+	/**
+	 * Returns the original request that was submitted.
+	 *
+	 * @return the request object
+	 */
 	public T getRequest() {
 		return request;
 	}
 
+	/**
+	 * Returns the submission status.
+	 *
+	 * @return the {@link Status} of the submission
+	 */
 	public Status getStatus() {
 		return status;
 	}
 
+	/**
+	 * Returns the exception that occurred during submission, if any.
+	 *
+	 * @return the exception, or {@code null} if no error occurred
+	 */
 	public Exception getError() {
 		return error;
 	}
 
+	/**
+	 * Returns the response received from the SOAP service.
+	 *
+	 * @return the {@link Response} object
+	 */
 	public Response getResponse() {
 		return response;
 	}

@@ -23,11 +23,20 @@ import com.smartbear.soapui.template.handler.SoapRequestHandler;
 import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
 
 /**
- * TODO
+ * Request handler that populates a SOAP request template using positional array parameters.
+ * Each parameter value is placed in the corresponding element position within the SOAP body.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapRequestHandler
  */
 public class SoapRequestArrayParamHandler implements SoapRequestHandler<String[]> {
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return the populated SOAP request XML string
+	 */
 	@Override
 	public String handleRequest(WsdlOperation operationInst, WsdlRequest request, String[] params) throws SoapUIException {
 		// generate the request content from the schema

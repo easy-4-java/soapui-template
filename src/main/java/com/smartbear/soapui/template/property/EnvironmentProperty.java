@@ -37,18 +37,38 @@ public class EnvironmentProperty {
 	 */
 	private Properties settings = new Properties();
 
+	/**
+	 * Returns the environment name.
+	 *
+	 * @return the environment name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the environment name.
+	 *
+	 * @param name the environment name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Returns the environment settings as a {@link Properties} object.
+	 *
+	 * @return the environment settings
+	 */
 	public Properties getSettings() {
 		return settings;
 	}
 
+	/**
+	 * Sets the environment settings.
+	 *
+	 * @param settings the environment settings as a {@link Properties} object
+	 */
 	public void setSettings(Properties settings) {
 		this.settings = settings;
 	}

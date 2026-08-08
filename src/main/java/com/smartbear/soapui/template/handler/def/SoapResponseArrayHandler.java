@@ -1,4 +1,4 @@
- package com.smartbear.soapui.template.handler.def;
+package com.smartbear.soapui.template.handler.def;
 
 import org.apache.xmlbeans.XmlException;
 
@@ -10,11 +10,19 @@ import com.smartbear.soapui.template.handler.SoapResponseHandler;
 import com.smartbear.soapui.template.utils.SoapuiResponseUtils;
 
 /**
- * 请求响应处理：返回String对象
+ * Response handler that parses a SOAP response into a string array of result values.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapResponseHandler
  */
 public class SoapResponseArrayHandler implements SoapResponseHandler<String[]> {
- 
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return a string array of parsed response values
+	 */
 	@Override
 	public String[] handleResponse(Response response, SoapVersion version) throws SoapUIException {
 		// 响应内容
