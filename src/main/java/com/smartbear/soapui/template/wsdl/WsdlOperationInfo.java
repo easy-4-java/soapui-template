@@ -30,9 +30,12 @@ import com.google.common.collect.Lists;
 import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
 
 /**
- * Wsdl Operation Info
- * 
+ * Represents the parsed information of a WSDL operation, including its name, type,
+ * description, SOAP action, target namespace, request/response XML, and input parameters.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see WsdlInterfaceInfo
  */
 public class WsdlOperationInfo {
 
@@ -51,6 +54,13 @@ public class WsdlOperationInfo {
 	private List<String> inputDesc;
 	private String sep = "#";
 
+	/**
+	 * Constructs a WsdlOperationInfo from a {@link WsdlOperation} instance,
+	 * extracting its name, description, type, request/response XML, SOAP version,
+	 * SOAP action, target namespace, and input parameters.
+	 *
+	 * @param operation the WSDL operation to extract information from
+	 */
 	public WsdlOperationInfo(WsdlOperation operation) {
 
 		WsdlInterface wsdlInterface = operation.getInterface();
@@ -87,54 +97,119 @@ public class WsdlOperationInfo {
 
 	}
 
+	/**
+	 * Returns the endpoint address of this operation.
+	 *
+	 * @return the endpoint address string
+	 */
 	public String getEndPoint() {
 		return endPoint;
 	}
 
+	/**
+	 * Returns the operation name.
+	 *
+	 * @return the operation name
+	 */
 	public String getOperationName() {
 		return operationName;
 	}
 
+	/**
+	 * Returns the operation type (e.g., request-response, one-way).
+	 *
+	 * @return the {@link OperationType}
+	 */
 	public OperationType getOperationType() {
 		return operationType;
 	}
 
+	/**
+	 * Returns the operation description.
+	 *
+	 * @return the description string
+	 */
 	public String getOperationDesc() {
 		return operationDesc;
 	}
 
+	/**
+	 * Returns the generated request XML template for this operation.
+	 *
+	 * @return the request XML string
+	 */
 	public String getRequestXml() {
 		return requestXml;
 	}
 
+	/**
+	 * Returns the generated response XML template for this operation.
+	 *
+	 * @return the response XML string
+	 */
 	public String getResponseXml() {
 		return responseXml;
 	}
 
+	/**
+	 * Returns the SOAP action header value for this operation.
+	 *
+	 * @return the SOAP action string
+	 */
 	public String getSoapAction() {
 		return soapAction;
 	}
 
+	/**
+	 * Returns the SOAP version used by this operation.
+	 *
+	 * @return the {@link SoapVersion}
+	 */
 	public SoapVersion getSoapVersion() {
 		return soapVersion;
 	}
 
+	/**
+	 * Returns the target namespace of this operation.
+	 *
+	 * @return the target namespace URI string
+	 */
 	public String getTargetNameSpace() {
 		return targetNameSpace;
 	}
 
+	/**
+	 * Returns the target XSD version indicator ("11" for SOAP 1.1, "12" for SOAP 1.2).
+	 *
+	 * @return the XSD version string
+	 */
 	public String getTargetXsd() {
 		return targetXsd;
 	}
 
+	/**
+	 * Returns the list of input parameter names.
+	 *
+	 * @return the list of input parameter names
+	 */
 	public List<String> getInputNames() {
 		return inputNames;
 	}
 
+	/**
+	 * Returns the list of input parameter types.
+	 *
+	 * @return the list of input parameter types
+	 */
 	public List<String> getInputTypes() {
 		return inputTypes;
 	}
 
+	/**
+	 * Returns the list of input parameter descriptions.
+	 *
+	 * @return the list of input parameter descriptions
+	 */
 	public List<String> getInputDesc() {
 		return inputDesc;
 	}

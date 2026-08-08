@@ -23,7 +23,12 @@ import com.eviware.soapui.impl.wsdl.WsdlOperation;
 import com.eviware.soapui.impl.wsdl.support.soap.SoapVersion;
 
 /**
+ * Represents the parsed information of a WSDL interface, including its name, type,
+ * description, SOAP version, endpoints, and the list of operations it exposes.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see WsdlOperationInfo
  */
 public class WsdlInterfaceInfo {
 	
@@ -35,6 +40,12 @@ public class WsdlInterfaceInfo {
 	private List<WsdlOperationInfo> operations;
 
 
+	/**
+	 * Constructs a WsdlInterfaceInfo from a {@link WsdlInterface} instance,
+	 * extracting its name, type, description, SOAP version, endpoints, and operations.
+	 *
+	 * @param wsdlInterface the WSDL interface to extract information from
+	 */
 	public WsdlInterfaceInfo(WsdlInterface wsdlInterface) {
 		this.interfaceName = wsdlInterface.getName();
 		this.interfaceType = wsdlInterface.getInterfaceType();
@@ -54,50 +65,110 @@ public class WsdlInterfaceInfo {
 		this.operations = operations;
 	}
 
+	/**
+	 * Returns the interface name.
+	 *
+	 * @return the interface name
+	 */
 	public String getInterfaceName() {
 		return interfaceName;
 	}
 
+	/**
+	 * Sets the interface name.
+	 *
+	 * @param interfaceName the interface name
+	 */
 	public void setInterfaceName(String interfaceName) {
 		this.interfaceName = interfaceName;
 	}
 
+	/**
+	 * Returns the list of operations defined in this interface.
+	 *
+	 * @return the list of {@link WsdlOperationInfo} objects
+	 */
 	public List<WsdlOperationInfo> getOperations() {
 		return operations;
 	}
 
+	/**
+	 * Sets the list of operations for this interface.
+	 *
+	 * @param operations the list of {@link WsdlOperationInfo} objects
+	 */
 	public void setOperations(List<WsdlOperationInfo> operations) {
 		this.operations = operations;
 	}
 
+	/**
+	 * Returns the endpoint addresses of this interface.
+	 *
+	 * @return an array of endpoint address strings
+	 */
 	public String[] getAdrress() {
 		return adrress;
 	}
 
+	/**
+	 * Sets the endpoint addresses of this interface.
+	 *
+	 * @param adrress an array of endpoint address strings
+	 */
 	public void setAdrress(String[] adrress) {
 		this.adrress = adrress;
 	}
 
+	/**
+	 * Returns the interface type identifier.
+	 *
+	 * @return the interface type string
+	 */
 	public String getInterfaceType() {
 		return interfaceType;
 	}
 
+	/**
+	 * Sets the interface type identifier.
+	 *
+	 * @param interfaceType the interface type string
+	 */
 	public void setInterfaceType(String interfaceType) {
 		this.interfaceType = interfaceType;
 	}
 
+	/**
+	 * Returns the interface description.
+	 *
+	 * @return the description string
+	 */
 	public String getInterfaceDesc() {
 		return interfaceDesc;
 	}
 
+	/**
+	 * Sets the interface description.
+	 *
+	 * @param interfaceDesc the description string
+	 */
 	public void setInterfaceDesc(String interfaceDesc) {
 		this.interfaceDesc = interfaceDesc;
 	}
 
+	/**
+	 * Returns the SOAP version used by this interface.
+	 *
+	 * @return the {@link SoapVersion}
+	 */
 	public SoapVersion getSoapVersion() {
 		return soapVersion;
 	}
 
+	/**
+	 * Sets the SOAP version used by this interface.
+	 *
+	 * @param soapVersion the {@link SoapVersion}
+	 */
 	public void setSoapVersion(SoapVersion soapVersion) {
 		this.soapVersion = soapVersion;
 	}

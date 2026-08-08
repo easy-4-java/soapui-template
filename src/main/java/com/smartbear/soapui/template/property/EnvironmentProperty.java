@@ -17,6 +17,15 @@ package com.smartbear.soapui.template.property;
 
 import java.util.Properties;
 
+/**
+ * Provides EnvironmentProperty functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see EnvironmentProperty
+ */
 public class EnvironmentProperty {
 
 	/**
@@ -28,18 +37,38 @@ public class EnvironmentProperty {
 	 */
 	private Properties settings = new Properties();
 
+	/**
+	 * Returns the environment name.
+	 *
+	 * @return the environment name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the environment name.
+	 *
+	 * @param name the environment name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Returns the environment settings as a {@link Properties} object.
+	 *
+	 * @return the environment settings
+	 */
 	public Properties getSettings() {
 		return settings;
 	}
 
+	/**
+	 * Sets the environment settings.
+	 *
+	 * @param settings the environment settings as a {@link Properties} object
+	 */
 	public void setSettings(Properties settings) {
 		this.settings = settings;
 	}

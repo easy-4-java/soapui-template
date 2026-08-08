@@ -25,11 +25,20 @@ import com.smartbear.soapui.template.handler.SoapRequestHandler;
 import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
 
 /**
- * TODO
+ * Request handler that populates a SOAP request template using named map parameters.
+ * Each key in the map corresponds to an element name in the SOAP body.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapRequestHandler
  */
 public class SoapRequestMapParamHandler implements SoapRequestHandler<Map<String, Object>> {
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return the populated SOAP request XML string
+	 */
 	@Override
 	public String handleRequest(WsdlOperation operationInst, WsdlRequest request, Map<String, Object> params) throws SoapUIException {
 		// generate the request content from the schema
