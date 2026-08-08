@@ -8,11 +8,19 @@ import com.eviware.soapui.support.SoapUIException;
 import com.smartbear.soapui.template.handler.SoapResponseHandler;
 
 /**
- * 请求响应处理：返回ByteArrayInputStream对象
+ * Response handler that returns the raw SOAP response data as a {@link ByteArrayInputStream}.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapResponseHandler
  */
 public class SoapStreamResponseHandler implements SoapResponseHandler<ByteArrayInputStream> {
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return a {@link ByteArrayInputStream} containing the raw response data
+	 */
 	@Override
 	public ByteArrayInputStream handleResponse(Response response, SoapVersion version) throws SoapUIException {
 		// 响应内容

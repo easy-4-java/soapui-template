@@ -60,15 +60,15 @@ public class SoapuiRequestUtils_Test {
 	@Test
 	public void testNoParam() throws IOException, Exception {
 	
-		System.err.println("========================================");	
-		String soapRequestBody = "\r\n" + 
-				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + 
-				"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" + 
-				"  <soap:Body>\r\n" + 
-				"    <getSupportProvince xmlns=\"http://WebXml.com.cn/\" />\r\n" + 
-				"  </soap:Body>\r\n" + 
+		System.err.println("========================================");
+		String soapRequestBody =
+				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" +
+				"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" +
+				"  <soap:Body>\r\n" +
+				"    <getSupportProvince xmlns=\"http://WebXml.com.cn/\" />\r\n" +
+				"  </soap:Body>\r\n" +
 				"</soap:Envelope>";
-		
+
 		Map<String, Object> params = Maps.newHashMap();
 		
 		String soapMessage1 = SoapuiRequestUtils.buildSoapMessage(soapRequestBody, SoapVersion.Soap11, params);
@@ -113,14 +113,14 @@ public class SoapuiRequestUtils_Test {
 	@Test
 	public void testExtractRequest2() throws IOException, Exception {
 		System.err.println("========================================");	
-		String soapRequestBody = "\r\n" + 
-				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + 
-				"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" + 
-				"  <soap:Body>\r\n" + 
-				"    <getSupportProvince xmlns=\"http://WebXml.com.cn/\" />\r\n" + 
-				"  </soap:Body>\r\n" + 
+		String soapRequestBody =
+				"<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" +
+				"<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" +
+				"  <soap:Body>\r\n" +
+				"    <getSupportProvince xmlns=\"http://WebXml.com.cn/\" />\r\n" +
+				"  </soap:Body>\r\n" +
 				"</soap:Envelope>";
-		
+
 		List<String> inputNames = Lists.newArrayList();
 		List<String> inputTypes = Lists.newArrayList();
 		

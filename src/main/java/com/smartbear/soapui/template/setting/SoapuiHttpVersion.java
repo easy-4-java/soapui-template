@@ -17,18 +17,33 @@ package com.smartbear.soapui.template.setting;
 
 import com.eviware.soapui.settings.HttpSettings;
 
+/**
+ * Enumerates the supported HTTP protocol versions for SOAP UI requests.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see com.eviware.soapui.settings.HttpSettings
+ */
 public enum SoapuiHttpVersion {
-	
+
+	/** HTTP/0.9 */
 	HTTP_VERSION_0_9(HttpSettings.HTTP_VERSION_0_9),
+	/** HTTP/1.0 */
 	HTTP_VERSION_1_0(HttpSettings.HTTP_VERSION_1_0),
+	/** HTTP/1.1 */
 	HTTP_VERSION_1_1(HttpSettings.HTTP_VERSION_1_1);
-	
+
 	private String version;
-	
+
 	private SoapuiHttpVersion(String version) {
 		this.version = version;
 	}
 
+	/**
+	 * Returns the HTTP version string identifier.
+	 *
+	 * @return the HTTP version string
+	 */
 	public String version() {
 		return version;
 	}

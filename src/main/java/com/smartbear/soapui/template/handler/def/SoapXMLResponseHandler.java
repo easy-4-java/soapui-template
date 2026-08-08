@@ -1,4 +1,4 @@
- package com.smartbear.soapui.template.handler.def;
+package com.smartbear.soapui.template.handler.def;
 
 import com.eviware.soapui.impl.wsdl.support.soap.SoapVersion;
 import com.eviware.soapui.model.iface.Response;
@@ -6,11 +6,19 @@ import com.eviware.soapui.support.SoapUIException;
 import com.smartbear.soapui.template.handler.SoapResponseHandler;
 
 /**
- * 请求响应处理：返回String对象
+ * Response handler that returns the SOAP response content as an XML string.
+ *
  * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapResponseHandler
  */
 public class SoapXMLResponseHandler implements SoapResponseHandler<String> {
- 
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return the response content as an XML string
+	 */
 	@Override
 	public String handleResponse(Response response, SoapVersion version) throws SoapUIException {
 		// 响应内容

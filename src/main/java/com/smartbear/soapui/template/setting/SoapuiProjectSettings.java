@@ -26,6 +26,15 @@ import com.eviware.soapui.model.testsuite.TestSuite.TestSuiteRunType;
  * 
  * @author [@Loong Wan](https://github.com/loong10k)
  */
+/**
+ * Provides SoapuiProjectSettings functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiProjectSettings
+ */
 public class SoapuiProjectSettings {
 
 	public static enum ScriptLanguage {

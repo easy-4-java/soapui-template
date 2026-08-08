@@ -17,18 +17,33 @@ package com.smartbear.soapui.template.setting;
 
 import com.eviware.soapui.impl.wsdl.support.CompressionSupport;
 
+/**
+ * Enumerates the supported HTTP request compression algorithms for SOAP UI requests.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see com.eviware.soapui.impl.wsdl.support.CompressionSupport
+ */
 public enum SoapuiHttpRequestCompression {
-	
+
+	/** No compression. */
 	ALG_NONE("None"),
+	/** GZIP compression. */
 	ALG_GZIP(CompressionSupport.ALG_GZIP),
+	/** DEFLATE compression. */
 	ALG_DEFLATE(CompressionSupport.ALG_DEFLATE);
-	
+
 	private String alg;
-	
+
 	private SoapuiHttpRequestCompression(String alg) {
 		this.alg = alg;
 	}
 
+	/**
+	 * Returns the algorithm identifier string.
+	 *
+	 * @return the compression algorithm name
+	 */
 	public String alg() {
 		return alg;
 	}

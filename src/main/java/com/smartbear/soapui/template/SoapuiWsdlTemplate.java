@@ -41,6 +41,15 @@ import com.smartbear.soapui.template.wsdl.WsdlInfo;
  * https://www.soapui.org/developers-corner/integrating-with-soapui.html
  * @author [@Loong Wan](https://github.com/loong10k)
  */
+/**
+ * Provides SoapuiWsdlTemplate functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiWsdlTemplate
+ */
 public class SoapuiWsdlTemplate {
 
 	private WsdlProject project;
