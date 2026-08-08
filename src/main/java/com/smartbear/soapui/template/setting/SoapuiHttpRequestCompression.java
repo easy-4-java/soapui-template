@@ -17,6 +17,15 @@ package com.smartbear.soapui.template.setting;
 
 import com.eviware.soapui.impl.wsdl.support.CompressionSupport;
 
+/**
+ * Provides SoapuiHttpRequestCompression functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiHttpRequestCompression
+ */
 public enum SoapuiHttpRequestCompression {
 	
 	ALG_NONE("None"),

@@ -29,6 +29,15 @@ import com.eviware.soapui.support.SoapUIException;
 import com.eviware.soapui.support.xml.XmlUtils;
 import com.google.common.collect.Lists;
 
+/**
+ * Provides SoapuiResponseUtils functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiResponseUtils
+ */
 public class SoapuiResponseUtils {
 	
 	public static String[] parseResponseToArray(String soapResponseBody, SoapVersion soapVersion) throws SoapUIException {

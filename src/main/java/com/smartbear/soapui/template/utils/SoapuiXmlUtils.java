@@ -20,6 +20,15 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * Provides SoapuiXmlUtils functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiXmlUtils
+ */
 public class SoapuiXmlUtils {
 	
 	public static String getName(Node node) {

@@ -18,6 +18,15 @@ package com.smartbear.soapui.template;
 import com.smartbear.soapui.template.property.EnvironmentProperty;
 import com.smartbear.soapui.template.setting.SoapuiSettings;
 
+/**
+ * Provides SoapuiProperties functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiProperties
+ */
 public class SoapuiProperties {
 	
 	public final static String DEFAULT_SETTINGS_FILE = "soapui-settings.xml";

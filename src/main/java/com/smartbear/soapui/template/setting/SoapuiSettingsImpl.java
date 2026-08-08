@@ -32,6 +32,15 @@ import com.eviware.soapui.settings.WsdlSettings;
 import com.eviware.soapui.support.StringUtils;
 import com.eviware.soapui.support.types.StringList;
 
+/**
+ * Provides SoapuiSettingsImpl functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiSettingsImpl
+ */
 public class SoapuiSettingsImpl extends SettingsImpl {
 
 	protected Settings parent;

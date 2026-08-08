@@ -34,6 +34,15 @@ import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
  * 
  * @author [@Loong Wan](https://github.com/loong10k)
  */
+/**
+ * Provides WsdlOperationInfo functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see WsdlOperationInfo
+ */
 public class WsdlOperationInfo {
 
 	private String endPoint;

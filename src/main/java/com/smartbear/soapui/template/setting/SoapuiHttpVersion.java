@@ -17,6 +17,15 @@ package com.smartbear.soapui.template.setting;
 
 import com.eviware.soapui.settings.HttpSettings;
 
+/**
+ * Provides SoapuiHttpVersion functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiHttpVersion
+ */
 public enum SoapuiHttpVersion {
 	
 	HTTP_VERSION_0_9(HttpSettings.HTTP_VERSION_0_9),

@@ -22,6 +22,15 @@ import com.eviware.soapui.support.types.StringList;
  * 
  * @author [@Loong Wan](https://github.com/loong10k)
  */
+/**
+ * Provides SoapuiWsdlSettings functionality for SOAP UI template processing.
+ * <p>This component encapsulates reusable behavior used when constructing,
+ * configuring, or interpreting SOAP UI requests and responses.</p>
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 3.0.0
+ * @see SoapuiWsdlSettings
+ */
 public class SoapuiWsdlSettings {
 
 	/**
