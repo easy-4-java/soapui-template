@@ -24,7 +24,7 @@ import org.w3c.dom.NodeList;
  * Utility class providing helper methods for XML DOM node operations used in
  * SOAP UI request and response processing.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  */
 public class SoapuiXmlUtils {

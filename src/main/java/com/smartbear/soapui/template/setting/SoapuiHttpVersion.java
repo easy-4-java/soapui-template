@@ -20,7 +20,7 @@ import com.eviware.soapui.settings.HttpSettings;
 /**
  * Enumerates the supported HTTP protocol versions for SOAP UI requests.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see com.eviware.soapui.settings.HttpSettings
  */

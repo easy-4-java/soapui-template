@@ -33,7 +33,7 @@ import com.google.common.collect.Lists;
  * Utility class for parsing SOAP response XML messages. Provides methods to extract
  * result values from SOAP response bodies into string arrays and to retrieve fault codes.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  */
 public class SoapuiResponseUtils {

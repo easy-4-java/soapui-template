@@ -20,7 +20,7 @@ import com.eviware.soapui.model.settings.Settings;
 /**
  * Strategy interface for loading SOAP UI settings from a file.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see com.eviware.soapui.model.settings.Settings
  */

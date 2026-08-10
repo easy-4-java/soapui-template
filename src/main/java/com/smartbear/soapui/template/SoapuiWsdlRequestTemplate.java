@@ -34,7 +34,7 @@ import com.smartbear.soapui.template.handler.def.SoapRequestMapParamHandler;
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SoapuiWsdlRequestTemplate
  */

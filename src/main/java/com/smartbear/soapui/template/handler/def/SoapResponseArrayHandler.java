@@ -12,7 +12,7 @@ import com.smartbear.soapui.template.utils.SoapuiResponseUtils;
 /**
  * Response handler that parses a SOAP response into a string array of result values.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SoapResponseHandler
  */

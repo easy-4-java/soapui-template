@@ -8,7 +8,7 @@ import com.smartbear.soapui.template.handler.SoapResponseHandler;
 /**
  * Response handler that returns the SOAP response content as an XML string.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SoapResponseHandler
  */

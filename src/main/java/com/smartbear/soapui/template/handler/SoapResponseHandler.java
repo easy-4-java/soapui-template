@@ -8,7 +8,7 @@ import com.eviware.soapui.support.SoapUIException;
  * Strategy interface for processing SOAP UI responses into application-specific types.
  *
  * @param <T> the type of the result produced by this handler
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see Response
  */

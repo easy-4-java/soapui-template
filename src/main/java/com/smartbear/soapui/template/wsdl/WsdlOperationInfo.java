@@ -33,7 +33,7 @@ import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
  * Represents the parsed information of a WSDL operation, including its name, type,
  * description, SOAP action, target namespace, request/response XML, and input parameters.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see WsdlInterfaceInfo
  */

@@ -24,7 +24,7 @@ import com.eviware.soapui.model.iface.Submit.Status;
  * request, the response content, the submission status, and any error that occurred.
  *
  * @param <T> the type of the HTTP request, must extend {@link AbstractHttpRequestInterface}
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see AbstractHttpRequestInterface
  */

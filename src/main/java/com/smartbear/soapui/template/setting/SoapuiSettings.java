@@ -19,7 +19,7 @@ package com.smartbear.soapui.template.setting;
  * Aggregates all SOAP UI settings including project, HTTP, proxy, SSL, WSA, WSDL,
  * and WS-I configuration into a single configuration object.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SoapuiProjectSettings
  * @see SoapuiHttpSettings

@@ -28,7 +28,7 @@ import com.smartbear.soapui.template.utils.SoapuiRequestUtils;
  * Request handler that populates a SOAP request template using named map parameters.
  * Each key in the map corresponds to an element name in the SOAP body.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see SoapRequestHandler
  */

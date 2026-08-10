@@ -26,7 +26,7 @@ import com.eviware.soapui.impl.wsdl.support.soap.SoapVersion;
  * Represents the parsed information of a WSDL interface, including its name, type,
  * description, SOAP version, endpoints, and the list of operations it exposes.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see WsdlOperationInfo
  */

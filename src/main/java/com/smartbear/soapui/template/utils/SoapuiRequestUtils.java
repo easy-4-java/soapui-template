@@ -34,7 +34,7 @@ import com.eviware.soapui.support.xml.XmlUtils;
  * to populate SOAP XML templates with parameter values using either map-based or
  * positional array-based parameter binding.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  */
 public class SoapuiRequestUtils {
@@ -45,7 +45,7 @@ public class SoapuiRequestUtils {
 	}
 	
 	/**
-	 * @author [@Loong Wan](https://github.com/loong10k)
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
 	 * @param soapRequestBody 请求内容模板
 	 * @param soapVersion     请求版本
 	 * @param params		     参数

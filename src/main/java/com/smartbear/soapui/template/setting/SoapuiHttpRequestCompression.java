@@ -20,7 +20,7 @@ import com.eviware.soapui.impl.wsdl.support.CompressionSupport;
 /**
  * Enumerates the supported HTTP request compression algorithms for SOAP UI requests.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 3.0.0
  * @see com.eviware.soapui.impl.wsdl.support.CompressionSupport
  */
