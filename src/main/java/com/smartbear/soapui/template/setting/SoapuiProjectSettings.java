@@ -22,11 +22,6 @@ import com.eviware.soapui.model.project.Project;
 import com.eviware.soapui.model.testsuite.TestSuite.TestSuiteRunType;
 
 /**
- * Project settings
- * 
- * @author [@Loong Wan](https://github.com/loong10k)
- */
-/**
  * Provides SoapuiProjectSettings functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>

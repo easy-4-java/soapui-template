@@ -18,11 +18,6 @@ package com.smartbear.soapui.template.setting;
 import com.eviware.soapui.support.types.StringList;
 
 /**
- * WSDL related settings
- * 
- * @author [@Loong Wan](https://github.com/loong10k)
- */
-/**
  * Provides SoapuiWsdlSettings functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>

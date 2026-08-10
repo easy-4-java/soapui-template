@@ -16,11 +16,6 @@
 package com.smartbear.soapui.template.setting;
 
 /**
- * HTTP-Proxy settings
- * 
- * @author [@Loong Wan](https://github.com/loong10k)
- */
-/**
  * Provides SoapuiProxySettings functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>

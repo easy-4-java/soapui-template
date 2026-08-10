@@ -18,9 +18,6 @@ package com.smartbear.soapui.template.setting;
 import com.eviware.soapui.settings.WSISettings;
 
 /**
- * WS-I Testing-Tools related settings
- */
-/**
  * Provides SoapuiWSISettings functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>

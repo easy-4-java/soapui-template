@@ -20,10 +20,6 @@ import com.eviware.soapui.impl.wsdl.WsdlRequest;
 import com.eviware.soapui.support.SoapUIException;
 
 /**
- * TODO
- * @author [@Loong Wan](https://github.com/loong10k)
- */
-/**
  * Provides SoapRequestHandler functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>

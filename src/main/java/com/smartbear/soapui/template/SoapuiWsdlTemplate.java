@@ -38,10 +38,6 @@ import com.google.common.collect.Lists;
 import com.smartbear.soapui.template.wsdl.WsdlInfo;
 
 /**
- * https://www.soapui.org/developers-corner/integrating-with-soapui.html
- * @author [@Loong Wan](https://github.com/loong10k)
- */
-/**
  * Provides SoapuiWsdlTemplate functionality for SOAP UI template processing.
  * <p>This component encapsulates reusable behavior used when constructing,
  * configuring, or interpreting SOAP UI requests and responses.</p>
