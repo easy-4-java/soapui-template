@@ -9,7 +9,7 @@ import com.smartbear.soapui.template.handler.SoapResponseHandler;
 
 /**
  * 请求响应处理：返回ByteArrayInputStream对象
- * @author 		： <a href="https://github.com/hiwepy">hiwepy</a>
+ * @author 		： <a href="https://github.com/easy-4-java">hiwepy</a>
  */
 public class SoapStreamResponseHandler implements SoapResponseHandler<ByteArrayInputStream> {
 
