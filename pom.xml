@@ -35,6 +35,7 @@
         </developer>
     </developers>
     <properties>
+        <!-- ═══ 第一段: 基础属性（自然排序）═══ -->
         <java.version>21</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <maven.version>4.0.0-rc-5</maven.version>
@@ -84,6 +85,13 @@
         <xmlbeans-xmlpublic.version>2.6.0</xmlbeans-xmlpublic.version>
         <xmlbeans-xpath.version>2.6.0</xmlbeans-xpath.version>
         <xmlbeans.version>5.3.0</xmlbeans.version>
+        <google-oauth-client.version>1.39.0</google-oauth-client.version>
+        <jsr173-api.version>1.0</jsr173-api.version>
+        <lombok.version>1.18.46</lombok.version>
+        <oltu-oauth2-client.version>0.31</oltu-oauth2-client.version>
+        <oltu-oauth2-httpclient4.version>0.31</oltu-oauth2-httpclient4.version>
+        <sac.version>1.3</sac.version>
+        <ws-commons-util.version>1.0.2</ws-commons-util.version>
         <!-- Maven Plugin versions -->
         <maven-central-publishing-plugin.version>0.11.0</maven-central-publishing-plugin.version>
         <maven-clean-plugin.version>3.5.0</maven-clean-plugin.version>
@@ -101,13 +109,6 @@
         <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
         <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
         <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
-        <google-oauth-client.version>1.39.0</google-oauth-client.version>
-        <jsr173-api.version>1.0</jsr173-api.version>
-        <lombok.version>1.18.46</lombok.version>
-        <oltu-oauth2-client.version>0.31</oltu-oauth2-client.version>
-        <oltu-oauth2-httpclient4.version>0.31</oltu-oauth2-httpclient4.version>
-        <sac.version>1.3</sac.version>
-        <ws-commons-util.version>1.0.2</ws-commons-util.version>
     </properties>
     <dependencyManagement>
         <dependencies>
