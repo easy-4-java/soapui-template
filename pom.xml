@@ -777,7 +777,6 @@
             </activation>
             <properties>
                 <!-- Dependency versions -->
-                <additionalparam>-Xdoclint:none</additionalparam>
                 <commons-beanutils.version>1.11.0</commons-beanutils.version>
                 <commons-codec.version>1.22.0</commons-codec.version>
                 <commons-io.version>2.22.0</commons-io.version>
