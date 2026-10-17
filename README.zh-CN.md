@@ -115,38 +115,20 @@ Maven：
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>soapui-template</artifactId>
-    <version>2.0.x.x.20260630-SNAPSHOT</version>
+    <version>2.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 Gradle：
 
 ```groovy
-implementation 'io.github.easy4j:soapui-template:2.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:soapui-template:2.0.x.20260630-SNAPSHOT'
 ```
 
-**前置条件 —— SoapUI 必须存在于你的 Maven 仓库。** POM 依赖 SoapUI 引擎（`com.eviware:soapui`），该引擎不会以预期形式发布到公共仓库，需先本地安装：
-
-```bash
-# 1. 克隆 SoapUI 源码
-git clone https://github.com/SmartBear/soapui.git
-
-# 2. 在 soapui/soapui/pom.xml 中将 XMLBeans 固定为 2.6.0：
-#    org.apache.xmlbeans:xmlbeans / xmlbeans-xpath / xmlbeans-xmlpublic  ->  2.6.0
-
-# 3. 构建并安装到本地 Maven 仓库
-mvn clean install
-```
-
-如需团队共享，可将制品部署到 Nexus 仓库：
-
-```bash
-mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 \
-  -Dpackaging=jar -Dfile=/path/to/soapui-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
-mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 \
-  -Dpackaging=jar -Dfile=/path/to/soapui-5.4.0-sources.jar -Dclassifier=sources \
-  -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
-```
+**依赖状态：** 当前配置的私有发布仓库已包含
+`com.eviware:soapui:5.4.0-easy4j`，用于替代上游不完整的 `5.4.0` 描述文件。
+但运行时依赖尚未闭合：SoapUI 初始化还需要 proxy-vole 和 SmartBear analytics 类。
+在这些依赖与 WSDL 测试于 JDK 17 下通过前，该快照尚不能作为可用版本发布。
 
 ## 6. Quick Start
 
@@ -235,7 +217,7 @@ SoapuiResponse<WsdlRequest> result =
 | `feature/2.0.x` | 17 | `2.0.x.*` |
 | `feature/3.0.x` | 21 | `3.0.x.*` |
 
-维护策略：`1.0.x` 为当前活跃开发线（当前快照 `2.0.x.x.20260630-SNAPSHOT`）；`2.0.x` 与 `3.0.x` 为面向更新 JDK 的前向移植线。快照按需构建，正式 Release 通过 GitHub Releases 分发。
+本分支对应 JDK 17，快照版本为 `2.0.x.20260630-SNAPSHOT`。三条线分别维护对应的 JDK 与依赖配置。快照按需构建，正式 Release 通过 GitHub Releases 分发。
 
 ## 11. Contributing & License
 
