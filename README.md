@@ -125,12 +125,12 @@ Gradle:
 implementation 'io.github.easy4j:soapui-template:2.0.x.20260630-SNAPSHOT'
 ```
 
-**Dependency status:** The configured private release repository contains
-`com.eviware:soapui:5.4.0-easy4j`, which replaces the incomplete upstream
-`5.4.0` descriptor. Its runtime dependency closure is still incomplete:
-SoapUI initialization requires proxy-vole and SmartBear analytics classes.
-The snapshot is not ready for use until those dependencies and the WSDL tests
-pass on JDK 17.
+**Dependency status:** The private release repository contains
+`com.eviware:soapui:5.4.0-easy4j` and the proxy-vole and SmartBear analytics
+JARs required by this module. The repository POM also declares XMLUnit and
+BlazeDS explicitly because the SoapUI engine descriptor omits them. All 314
+module tests pass on JDK 17. Configure access to the private release and
+snapshot repositories before consuming the snapshot.
 
 ## 6. Quick Start
 

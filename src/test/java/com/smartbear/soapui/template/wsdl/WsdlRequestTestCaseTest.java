@@ -18,10 +18,14 @@ package com.smartbear.soapui.template.wsdl;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.databene.contiperf.PerfTest;
-import org.databene.contiperf.junit.ContiPerfRule;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+
+import com.sun.net.httpserver.HttpServer;
+
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import com.eviware.soapui.impl.WsdlInterfaceFactory;
@@ -40,9 +44,6 @@ public class WsdlRequestTestCaseTest {
 
 	private WsdlProject project;
 	
-	@Rule  
-    public ContiPerfRule i = new ContiPerfRule();  
-	
 	@Before
 	public void setup() throws Exception {
 		// create new project
@@ -51,18 +52,35 @@ public class WsdlRequestTestCaseTest {
 	}
 	
     @Test
-    @PerfTest(invocations = 2, threads = 1)  
-    //@Required(max = 1200, average = 250, totalTime = 60000)  
     public void testRequest() throws Exception {
+        runRequest();
+        setup();
+        runRequest();
+    }
+
+    private void runRequest() throws Exception {
 
         // import amazon wsdl
-        WsdlInterface[] ifaces = WsdlInterfaceFactory.importWsdl(project, "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl",
+        WsdlInterface[] ifaces = WsdlInterfaceFactory.importWsdl(project, WsdlRequestTestCaseTest.class.getResource("/wsdls/test1/TestService.wsdl").toExternalForm(),
                 true);
 
+        HttpServer server = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        server.createContext("/soap", exchange -> {
+            byte[] body = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body/></soap:Envelope>".getBytes(StandardCharsets.UTF_8);
+            exchange.getResponseHeaders().set("Content-Type", "text/xml; charset=UTF-8");
+            exchange.sendResponseHeaders(200, body.length);
+            try (OutputStream output = exchange.getResponseBody()) {
+                output.write(body);
+            } finally {
+                exchange.close();
+            }
+        });
+        server.start();
+        try {
         for (WsdlInterface iface : ifaces) {
 		
 	        // get "Help" operation
-	        WsdlOperation operation = (WsdlOperation) iface.getOperationByName("getWeatherbyCityName");
+	        WsdlOperation operation = (WsdlOperation) iface.getOperationByName("Ping");
 	
 	        // create a new empty request for that operation
 	        WsdlRequest request = operation.addNewRequest("My request");
@@ -71,7 +89,8 @@ public class WsdlRequestTestCaseTest {
 	        request.setRequestContent(operation.createRequest(true));
 	
 	        // submit the request
-	        WsdlSubmit submit = (WsdlSubmit) request.submit(new WsdlSubmitContext(request), false);
+	        request.setEndpoint("http://127.0.0.1:" + server.getAddress().getPort() + "/soap");
+        WsdlSubmit submit = (WsdlSubmit) request.submit(new WsdlSubmitContext(request), false);
 	
 	        // wait for the response
 	        Response response = submit.getResponse();
@@ -82,6 +101,9 @@ public class WsdlRequestTestCaseTest {
 	        assertNotNull(content);
 	        
 	        System.err.println("=============================================================");
+        }
+        } finally {
+            server.stop(0);
         }
     }
 }

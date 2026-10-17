@@ -125,10 +125,10 @@ Gradle：
 implementation 'io.github.easy4j:soapui-template:2.0.x.20260630-SNAPSHOT'
 ```
 
-**依赖状态：** 当前配置的私有发布仓库已包含
-`com.eviware:soapui:5.4.0-easy4j`，用于替代上游不完整的 `5.4.0` 描述文件。
-但运行时依赖尚未闭合：SoapUI 初始化还需要 proxy-vole 和 SmartBear analytics 类。
-在这些依赖与 WSDL 测试于 JDK 17 下通过前，该快照尚不能作为可用版本发布。
+**依赖状态：** 私有发布仓库已有 `com.eviware:soapui:5.4.0-easy4j`，
+以及本模块所需的 proxy-vole 与 SmartBear analytics JAR。由于 SoapUI
+引擎描述文件缺少依赖，本项目还显式声明了 XMLUnit 和 BlazeDS。
+JDK 17 下模块 314 项测试通过。消费快照前需配置私有发布仓库和快照仓库。
 
 ## 6. Quick Start
 
