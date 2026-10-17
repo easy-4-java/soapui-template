@@ -1,0 +1,2 @@
+Source: https://repository.liferay.com/nexus/content/groups/public/com/liferay/com.btr.proxy.vole/20131209/com.btr.proxy.vole-20131209.jar
+SHA-256: 00633dd826be1eb99da02ac0697cbe71b3dd4b68b3ca15347172ca08407bcb17
