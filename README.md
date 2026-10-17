@@ -115,38 +115,22 @@ Maven:
 <dependency>
     <groupId>io.github.easy4j</groupId>
     <artifactId>soapui-template</artifactId>
-    <version>3.0.x.x.20260630-SNAPSHOT</version>
+    <version>3.0.x.20260630-SNAPSHOT</version>
 </dependency>
 ```
 
 Gradle:
 
 ```groovy
-implementation 'io.github.easy4j:soapui-template:3.0.x.x.20260630-SNAPSHOT'
+implementation 'io.github.easy4j:soapui-template:3.0.x.20260630-SNAPSHOT'
 ```
 
-**Prerequisite — SoapUI must be available in your Maven repository.** The POM depends on the SoapUI engine (`com.eviware:soapui`), which is not published to public repositories in the expected form. Install it locally first:
-
-```bash
-# 1. Clone the SoapUI source
-git clone https://github.com/SmartBear/soapui.git
-
-# 2. In soapui/soapui/pom.xml, pin XMLBeans to 2.6.0:
-#    org.apache.xmlbeans:xmlbeans / xmlbeans-xpath / xmlbeans-xmlpublic  ->  2.6.0
-
-# 3. Build and install the engine into the local Maven repository
-mvn clean install
-```
-
-To share the artifacts with a team, deploy them to a Nexus repository instead:
-
-```bash
-mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 \
-  -Dpackaging=jar -Dfile=/path/to/soapui-5.4.0.jar -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
-mvn deploy:deploy-file -DgroupId=com.eviware -DartifactId=soapui -Dversion=5.4.0 \
-  -Dpackaging=jar -Dfile=/path/to/soapui-5.4.0-sources.jar -Dclassifier=sources \
-  -Durl=${repositoryUrl} -DrepositoryId=${repositoryId}
-```
+**Dependency status:** The private release repository contains
+`com.eviware:soapui:5.4.0-easy4j` and the proxy-vole and SmartBear analytics
+JARs required by this module. XMLUnit and BlazeDS are explicitly declared
+because the SoapUI engine descriptor omits them. All 314 module tests pass on
+JDK 21. Configure access to the private release and snapshot repositories
+before consuming the snapshot.
 
 ## 6. Quick Start
 
@@ -235,7 +219,7 @@ Three parallel version lines are maintained:
 | `feature/2.0.x` | 17 | `2.0.x.*` |
 | `feature/3.0.x` | 21 | `3.0.x.*` |
 
-Maintenance policy: the `1.0.x` line is the actively developed line (current snapshot `3.0.x.x.20260630-SNAPSHOT`); `2.0.x` and `3.0.x` are forward porting lines targeting newer JDKs. Snapshots are built on demand; tagged releases are distributed via GitHub Releases.
+Maintenance policy: the `1.0.x` line is the actively developed line (current snapshot `3.0.x.20260630-SNAPSHOT`); `2.0.x` and `3.0.x` are forward porting lines targeting newer JDKs. Snapshots are built on demand; tagged releases are distributed via GitHub Releases.
 
 ## 11. Contributing & License
 

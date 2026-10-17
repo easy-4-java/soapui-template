@@ -40,10 +40,11 @@ public class SoapUI_Rest_Test {
 			
 		});
 		
-		RestService rest = (RestService) InterfaceFactoryRegistry.createNew(project, RestServiceFactory.REST_TYPE, "https://www.sojson.com/open/api/weather/json.shtml");
+		RestService rest = (RestService) InterfaceFactoryRegistry.createNew(project, RestServiceFactory.REST_TYPE, "http://127.0.0.1/weather");
 		
 		
-		RestResource res = rest.getResourcesByFullPath("https://www.sojson.com/open/api/weather/json.shtml")[0];
+		rest.addNewResource("weather", "/weather");
+		RestResource res = rest.getResourcesByFullPath("/weather")[0];
 		 
 		res.getChildResourceList();
 		

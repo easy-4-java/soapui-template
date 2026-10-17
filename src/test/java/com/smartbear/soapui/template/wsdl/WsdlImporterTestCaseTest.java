@@ -22,6 +22,13 @@ import com.eviware.soapui.impl.wsdl.support.wsdl.WsdlUtils;
 import com.eviware.soapui.model.iface.Submit;
 import org.junit.Test;
 
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+
+import com.sun.net.httpserver.HttpServer;
+
 import javax.wsdl.BindingOperation;
 import javax.wsdl.Definition;
 
@@ -41,7 +48,7 @@ public class WsdlImporterTestCaseTest {
     public void testOneWayOperationImport() throws Exception {
 
         WsdlProject project = new WsdlProject();
-        WsdlInterface[] wsdls = WsdlImporter.importWsdl(project, "http://localhost:80wsdls/testonewayop/TestService.wsdl");
+        WsdlInterface[] wsdls = WsdlImporter.importWsdl(project, WsdlImporterTestCaseTest.class.getResource("/wsdls/testonewayop/TestService.wsdl").toExternalForm());
 
         assertThat(wsdls.length, is(1));
 
@@ -55,7 +62,7 @@ public class WsdlImporterTestCaseTest {
         assertThat(operation, is(notNullValue()));
         assertThat(operation.getName(), is("GetDefaultPageData"));
 
-        Definition definition = WsdlUtils.readDefinition("http://localhost:80/wsdls/testonewayop/TestService.wsdl");
+        Definition definition = WsdlUtils.readDefinition(WsdlImporterTestCaseTest.class.getResource("/wsdls/testonewayop/TestService.wsdl").toExternalForm());
 
         BindingOperation bindingOperation = operation.findBindingOperation(definition);
         assertThat(bindingOperation, is(notNullValue()));
@@ -71,8 +78,23 @@ public class WsdlImporterTestCaseTest {
 
         request.setRequestContent(requestXml);
 
-        Submit submit = request.submit(new WsdlSubmitContext(null), false);
-
-        assertThat(submit.getResponse().getContentAsString(), containsString("Error 404 NOT_FOUND"));
+        HttpServer server = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        server.createContext("/", exchange -> {
+            byte[] body = "Error 404 NOT_FOUND".getBytes(StandardCharsets.UTF_8);
+            exchange.sendResponseHeaders(404, body.length);
+            try (OutputStream output = exchange.getResponseBody()) {
+                output.write(body);
+            } finally {
+                exchange.close();
+            }
+        });
+        server.start();
+        try {
+            request.setEndpoint("http://127.0.0.1:" + server.getAddress().getPort() + "/");
+            Submit submit = request.submit(new WsdlSubmitContext(null), false);
+            assertThat(submit.getResponse().getContentAsString(), containsString("Error 404 NOT_FOUND"));
+        } finally {
+            server.stop(0);
+        }
     }
 }
