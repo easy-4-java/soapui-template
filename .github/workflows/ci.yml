@@ -36,11 +36,14 @@ jobs:
 
       - name: Install vendored SoapUI dependency
         run: |
+          printf '%s  %s\n' \
+            'f28eb4c1de337cc5bbe7e81a83d75905887a69a8b97b856d75ffa1494a3fd4c7' \
+            'SoapUI Jar/com/eviware/soapui/5.4.0/soapui-5.4.0.jar' | sha256sum --check
           mvn -B --no-transfer-progress install:install-file \
             -Dfile="SoapUI Jar/com/eviware/soapui/5.4.0/soapui-5.4.0.jar" \
             -DgroupId=com.eviware \
             -DartifactId=soapui \
-            -Dversion=5.4.0 \
+            -Dversion=5.4.0-easy4j \
             -Dpackaging=jar \
             -DgeneratePom=true
 

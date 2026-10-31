@@ -1,0 +1,2 @@
+SoapUI test WADL fixtures from https://github.com/SmartBear/soapui at commit 452bc1778ca85310549beb43c2ad4670cc89d7ae
+Source: soapui/src/test/resources/wadl/
