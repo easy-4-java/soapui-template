@@ -17,6 +17,7 @@ package com.smartbear.soapui.template.setting;
 
 import java.io.File;
 
+import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.impl.settings.SettingsImpl;
 import com.eviware.soapui.impl.wsdl.WsdlRequest;
 import com.eviware.soapui.impl.wsdl.support.http.HttpClientSupport;
@@ -46,12 +47,14 @@ public class SoapuiSettingsImpl extends SettingsImpl {
 	protected Settings parent;
 	public SoapuiSettingsImpl() {
 		super();
+		SoapUI.getSettings();
 		HttpClientSupport.addSSLListener(this);
 	}
 
 	public SoapuiSettingsImpl(Settings parent) {
 		super(parent);
 		this.parent = parent;
+		SoapUI.getSettings();
 		HttpClientSupport.addSSLListener(this);
 	}
 	
@@ -64,6 +67,7 @@ public class SoapuiSettingsImpl extends SettingsImpl {
 		this.setWsaSettings(settings.getWsa());
 		this.setWsdlSettings(settings.getWsdl());
 		this.setWsiSettings(settings.getWsi());
+		SoapUI.getSettings();
 		HttpClientSupport.addSSLListener(this);
 	}
 	
