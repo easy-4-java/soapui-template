@@ -22,9 +22,12 @@ import java.util.Map;
 import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.impl.wsdl.WsdlRequest;
+import com.eviware.soapui.model.iface.Operation;
 import com.eviware.soapui.model.iface.Request.SubmitException;
 import com.eviware.soapui.support.SoapUIException;
 import com.google.common.collect.Maps;
@@ -88,16 +91,43 @@ public class SoapuiRequestTemplate_Test extends AbstractWsdlTemplate_Test {
 		
 		//Map<String, Object> params = Maps.newHashMap();
 		//params.put("theIpAddress",  "221.110.10.14");
-		wsdlUrl = "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl";
 		Map<String, Object> requestParams = new HashMap<>();
-		requestParams.put("mobileCode", "13735893463");
 		
-		SoapuiResponse<WsdlRequest> response = requestTemplate.invokeByName(wsdlUrl, "getMobileCodeInfo", requestParams);
+		SoapuiResponse<WsdlRequest> response = requestTemplate.invokeByName(wsdlUrl, "Ping", requestParams);
+		assertNotNull(response.getResponse());
+		assertTrue(response.getResponse().getContentAsString().contains("<PingResult>true</PingResult>"));
 		
 		System.out.println(response.getResponse().getResponseHeaders());
 		
 		System.out.println(response.getResponse().getContentAsString());
 		
+	}
+
+	@Test
+	public void invokesPingByNameAndIndexWithBothParameterForms() throws Exception {
+		int pingIndex = -1;
+		int index = 0;
+		for (Operation operation : wsdlTemplate.getOperationList(wsdlUrl)) {
+			if ("Ping".equals(operation.getName())) {
+				pingIndex = index;
+				break;
+			}
+			index++;
+		}
+		assertTrue("Ping must exist in the local WSDL", pingIndex >= 0);
+
+		Map<String, Object> namedParameters = new HashMap<>();
+		String[] orderedParameters = new String[0];
+		assertPing(requestTemplate.invokeByName(wsdlUrl, "Ping", orderedParameters));
+		assertPing(requestTemplate.invokeAt(wsdlUrl, pingIndex, namedParameters));
+		assertPing(requestTemplate.invokeAt(wsdlUrl, pingIndex, orderedParameters));
+	}
+
+	private void assertPing(SoapuiResponse<WsdlRequest> response) {
+		assertNotNull(response.getRequest());
+		assertTrue(response.getRequest().getRequestContent().contains("Ping"));
+		assertNotNull(response.getResponse());
+		assertTrue(response.getResponse().getContentAsString().contains("<PingResult>true</PingResult>"));
 	}
 	
 }
