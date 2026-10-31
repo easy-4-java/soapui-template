@@ -58,7 +58,7 @@ public class SoapuiWsdlTemplate_Test extends AbstractWsdlTemplate_Test {
 		System.err.println( "getOperationByName===========================================");
 		
 		// wait for the response
-		WsdlOperation operation = wsdlTemplate.getOperationByName(wsdlUrl, "getCountryCityByIp");
+		WsdlOperation operation = wsdlTemplate.getOperationByName(wsdlUrl, "Ping");
 			
 		System.out.println( "Name : " + operation.getName() );
 		System.out.println( "Action : " + operation.getAction() );

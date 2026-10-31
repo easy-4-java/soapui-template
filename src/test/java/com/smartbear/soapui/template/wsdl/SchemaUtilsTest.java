@@ -19,13 +19,22 @@ package com.smartbear.soapui.template.wsdl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.xml.namespace.QName;
 
 import org.apache.xmlbeans.SchemaTypeLoader;
 import org.apache.xmlbeans.XmlObject;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import com.sun.net.httpserver.HttpServer;
 
 import com.eviware.soapui.impl.wsdl.support.UrlSchemaLoader;
 import com.eviware.soapui.impl.wsdl.support.wsdl.UrlWsdlLoader;
@@ -36,6 +45,42 @@ import com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils;
  */
 public class SchemaUtilsTest
 {
+    private static HttpServer fixtureServer;
+    private static String fixtureBaseUrl;
+
+    @BeforeClass
+    public static void startFixtureServer() throws Exception {
+        fixtureServer = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        fixtureServer.createContext("/wsdls/", exchange -> {
+            String path = exchange.getRequestURI().getPath();
+            try (InputStream resource = SchemaUtilsTest.class.getResourceAsStream(path)) {
+                if (Objects.isNull(resource)) {
+                    exchange.sendResponseHeaders(404, -1);
+                } else {
+                    ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                    byte[] chunk = new byte[8192];
+                    for (int count; (count = resource.read(chunk)) != -1; ) {
+                        buffer.write(chunk, 0, count);
+                    }
+                    byte[] body = buffer.toByteArray();
+                    exchange.getResponseHeaders().set("Content-Type", "application/xml");
+                    exchange.sendResponseHeaders(200, body.length);
+                    try (OutputStream response = exchange.getResponseBody()) {
+                        response.write(body);
+                    }
+                }
+            } finally {
+                exchange.close();
+            }
+        });
+        fixtureServer.start();
+        fixtureBaseUrl = "http://127.0.0.1:" + fixtureServer.getAddress().getPort();
+    }
+
+    @AfterClass
+    public static void stopFixtureServer() {
+        fixtureServer.stop(0);
+    }
 
 	@Test
 	public void testFileImport() throws Exception
@@ -47,20 +92,20 @@ public class SchemaUtilsTest
 	public void testHttpImport() throws Exception
 	{
 		validatePath( "/wsdls/test1/TestService.wsdl", 3 );
-		validate( "http://localhost:80/wsdls/test1/TestService.wsdl", 3 );
+		validate( fixtureBaseUrl + "/wsdls/test1/TestService.wsdl", 3 );
 	}
 
 	@Test
 	public void testHttpImport2() throws Exception
 	{
-		validate( "http://localhost:80/wsdls/test2/TestService.wsdl", 3 );
+		validate( fixtureBaseUrl + "/wsdls/test2/TestService.wsdl", 3 );
 		validatePath( "/wsdls/test2/TestService.wsdl", 3 );
 	}
 
 	@Test
 	public void testHttpImport3() throws Exception
 	{
-		validate( "http://localhost:80/wsdls/test3/TestService.wsdl", 3 );
+		validate( fixtureBaseUrl + "/wsdls/test3/TestService.wsdl", 3 );
 		validatePath( "/wsdls/test3/TestService.wsdl", 3 );
 
 	}
@@ -68,7 +113,7 @@ public class SchemaUtilsTest
 	@Test
 	public void testHttpImport4() throws Exception
 	{
-		validate( "http://localhost:80/wsdls/test4/TestService.wsdl", 3 );
+		validate( fixtureBaseUrl + "/wsdls/test4/TestService.wsdl", 3 );
 		validatePath( "/wsdls/test4/TestService.wsdl", 3 );
 
 	}
@@ -76,14 +121,14 @@ public class SchemaUtilsTest
 	@Test
 	public void testHttpImport5() throws Exception
 	{
-		validate( "http://localhost:80/wsdls/test5/TestService.wsdl", 4 );
+		validate( fixtureBaseUrl + "/wsdls/test5/TestService.wsdl", 4 );
 		validatePath( "/wsdls/test5/TestService.wsdl", 4 );
 	}
 
 	@Test
 	public void testHttpImport6() throws Exception
 	{
-		SchemaTypeLoader schemaTypes = validate( "http://localhost:80/wsdls/test6/TestService.wsdl", 4 );
+		SchemaTypeLoader schemaTypes = validate( fixtureBaseUrl + "/wsdls/test6/TestService.wsdl", 4 );
 		assertNotNull( schemaTypes.findType( new QName( "http://schemas.eviware.com/TestService/v2/", "TestType" ) ) );
 
 		schemaTypes = validatePath( "/wsdls/test6/TestService.wsdl", 4 );
@@ -93,7 +138,7 @@ public class SchemaUtilsTest
 	@Test
 	public void testHttpImport7() throws Exception
 	{
-		SchemaTypeLoader schemaTypes = validate( "http://localhost:80/wsdls/test7/TestService.wsdl", 4 );
+		SchemaTypeLoader schemaTypes = validate( fixtureBaseUrl + "/wsdls/test7/TestService.wsdl", 4 );
 		assertNotNull( schemaTypes.findType( new QName( "http://schemas.eviware.com/TestService/v2/", "TestType" ) ) );
 
 		schemaTypes = validatePath( "/wsdls/test7/TestService.wsdl", 4 );
@@ -103,7 +148,7 @@ public class SchemaUtilsTest
 	@Test
 	public void testHttpImport8() throws Exception
 	{
-		SchemaTypeLoader schemaTypes = validate( "http://localhost:80/wsdls/test8/TestService.wsdl", 4 );
+		SchemaTypeLoader schemaTypes = validate( fixtureBaseUrl + "/wsdls/test8/TestService.wsdl", 4 );
 		assertNotNull( schemaTypes.findType( new QName( "http://schemas.eviware.com/TestService/v2/", "TestType" ) ) );
 
 		schemaTypes = validatePath( "/wsdls/test8/TestService.wsdl", 4 );
@@ -113,7 +158,7 @@ public class SchemaUtilsTest
 	@Test
 	public void testHttpImport9() throws Exception
 	{
-		String url = "http://localhost:80/wsdls/test9/testcase.wsdl";
+		String url = fixtureBaseUrl + "/wsdls/test9/testcase.wsdl";
 		SchemaTypeLoader schemaTypes = SchemaUtils.loadSchemaTypes( url, new UrlWsdlLoader( url ) );
 		assertNotNull( schemaTypes.findElement( new QName( "http://testcase/wsdl", "One" ) ) );
 		assertNotNull( schemaTypes.findElement( new QName( "http://testcase/wsdl", "Two" ) ) );
