@@ -241,11 +241,7 @@
                 <version>${log4j.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${commons-logging.version}</version>
-            </dependency>
+            
             <!-- For WSS4J -->
             <dependency>
                 <groupId>org.apache.ws.security</groupId>
