@@ -22,8 +22,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.xmlbeans.XmlException;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.impl.wsdl.WsdlOperation;
 import com.eviware.soapui.model.iface.Operation;
 import com.eviware.soapui.model.iface.Request.SubmitException;
@@ -33,6 +35,13 @@ import com.smartbear.soapui.template.wsdl.WsdlInterfaceInfo;
 import com.smartbear.soapui.template.wsdl.WsdlOperationInfo;
 
 public class SoapuiWsdlTemplate_Test extends AbstractWsdlTemplate_Test {
+
+	@BeforeClass
+	public static void initializeSoapUiBeforeWsdlImport() {
+		// Fail at the actual bootstrap call instead of obscuring it behind the
+		// HttpClientSupport static initializer and its later cascading errors.
+		org.junit.Assert.assertNotNull(SoapUI.getSettings());
+	}
 	
 	@Test
 	public void getOperationAt() throws XmlException, IOException, SoapUIException, SubmitException {
