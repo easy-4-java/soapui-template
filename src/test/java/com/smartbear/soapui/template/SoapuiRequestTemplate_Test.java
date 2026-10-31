@@ -27,6 +27,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.impl.wsdl.WsdlRequest;
+import com.eviware.soapui.model.iface.Operation;
 import com.eviware.soapui.model.iface.Request.SubmitException;
 import com.eviware.soapui.support.SoapUIException;
 import com.google.common.collect.Maps;
@@ -100,6 +101,33 @@ public class SoapuiRequestTemplate_Test extends AbstractWsdlTemplate_Test {
 		
 		System.out.println(response.getResponse().getContentAsString());
 		
+	}
+
+	@Test
+	public void invokesPingByNameAndIndexWithBothParameterForms() throws Exception {
+		int pingIndex = -1;
+		int index = 0;
+		for (Operation operation : wsdlTemplate.getOperationList(wsdlUrl)) {
+			if ("Ping".equals(operation.getName())) {
+				pingIndex = index;
+				break;
+			}
+			index++;
+		}
+		assertTrue("Ping must exist in the local WSDL", pingIndex >= 0);
+
+		Map<String, Object> namedParameters = new HashMap<>();
+		String[] orderedParameters = new String[0];
+		assertPing(requestTemplate.invokeByName(wsdlUrl, "Ping", orderedParameters));
+		assertPing(requestTemplate.invokeAt(wsdlUrl, pingIndex, namedParameters));
+		assertPing(requestTemplate.invokeAt(wsdlUrl, pingIndex, orderedParameters));
+	}
+
+	private void assertPing(SoapuiResponse<WsdlRequest> response) {
+		assertNotNull(response.getRequest());
+		assertTrue(response.getRequest().getRequestContent().contains("Ping"));
+		assertNotNull(response.getResponse());
+		assertTrue(response.getResponse().getContentAsString().contains("<PingResult>true</PingResult>"));
 	}
 	
 }
