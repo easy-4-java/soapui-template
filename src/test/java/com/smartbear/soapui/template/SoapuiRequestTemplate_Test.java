@@ -22,6 +22,8 @@ import java.util.Map;
 import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import com.eviware.soapui.SoapUI;
 import com.eviware.soapui.impl.wsdl.WsdlRequest;
@@ -88,11 +90,11 @@ public class SoapuiRequestTemplate_Test extends AbstractWsdlTemplate_Test {
 		
 		//Map<String, Object> params = Maps.newHashMap();
 		//params.put("theIpAddress",  "221.110.10.14");
-		wsdlUrl = "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl";
 		Map<String, Object> requestParams = new HashMap<>();
-		requestParams.put("mobileCode", "13735893463");
 		
-		SoapuiResponse<WsdlRequest> response = requestTemplate.invokeByName(wsdlUrl, "getMobileCodeInfo", requestParams);
+		SoapuiResponse<WsdlRequest> response = requestTemplate.invokeByName(wsdlUrl, "Ping", requestParams);
+		assertNotNull(response.getResponse());
+		assertTrue(response.getResponse().getContentAsString().contains("<PingResult>true</PingResult>"));
 		
 		System.out.println(response.getResponse().getResponseHeaders());
 		
