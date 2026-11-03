@@ -19,6 +19,8 @@ import java.io.IOException;
 
 import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 
 import com.eviware.soapui.impl.wsdl.WsdlProject;
 import com.eviware.soapui.model.environment.EnvironmentListener;
@@ -29,11 +31,24 @@ import com.eviware.soapui.support.SoapUIException;
 
 public abstract class AbstractWsdlTemplate_Test {
 
+    private static LocalWsdlServer fixtureServer;
+
+    @BeforeClass
+    public static void startWsdlFixture() throws Exception {
+        fixtureServer = new LocalWsdlServer();
+    }
+
+    @AfterClass
+    public static void stopWsdlFixture() {
+        fixtureServer.close();
+    }
+
 	protected SoapuiWsdlTemplate wsdlTemplate;
-	protected String wsdlUrl = "http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?wsdl";
+	protected String wsdlUrl;
 	
 	@Before
 	public void setup() throws XmlException, IOException, SoapUIException {
+		wsdlUrl = fixtureServer.wsdlUrl();
 		
 		// create new project
 		WsdlProject project = new WsdlProject();

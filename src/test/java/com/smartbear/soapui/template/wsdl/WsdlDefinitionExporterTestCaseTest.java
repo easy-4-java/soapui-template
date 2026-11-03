@@ -39,15 +39,15 @@ public class WsdlDefinitionExporterTestCaseTest {
     @Test
     public void shouldSaveDefinition() throws Exception {
 
-        testLoader("http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/RandomFontsWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/ChinaZipSearchWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/ValidateCodeWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/ValidateEmailWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/TraditionalSimplifiedWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/ChinaStockWebService.asmx?wsdl");
-        testLoader("http://www.webxml.com.cn/WebServices/StockInfoWS.asmx?wsdl");
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test1/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test2/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test3/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test4/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test5/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test6/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test7/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test8/TestService.wsdl").toExternalForm());
+        testLoader(WsdlDefinitionExporterTestCaseTest.class.getResource("/wsdls/test9/testcase.wsdl").toExternalForm());
     }
 
     private void testLoader(String wsdlUrl) throws Exception {

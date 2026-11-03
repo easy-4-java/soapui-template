@@ -36,7 +36,7 @@ public class WsdlProjectTestCaseTest {
     public void testComplexLoad() throws Exception {
        
         WsdlProject project = new WsdlProject();
-        WsdlInterface[] wsdls = WsdlImporter.importWsdl(project, "http://localhost:80/wsdls/test8/TestService.wsdl");
+        WsdlInterface[] wsdls = WsdlImporter.importWsdl(project, WsdlProjectTestCaseTest.class.getResource("/wsdls/test8/TestService.wsdl").toExternalForm());
 
         assertEquals(1, wsdls.length);
     }
