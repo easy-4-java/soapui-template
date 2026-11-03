@@ -1,0 +1,3 @@
+SoapUI test fixtures from https://github.com/SmartBear/soapui at commit 452bc1778ca85310549beb43c2ad4670cc89d7ae
+Source path: soapui-system-test/src/test/resources/wsdls/
+License: see upstream LICENSE.

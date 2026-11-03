@@ -32,7 +32,8 @@ public class SoapuiWsdl_Test {
 	@Test
 	public void testWsdl() throws IOException, Exception {
         
-		String wsdlUrl = "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl";
+		try (LocalWsdlServer fixture = new LocalWsdlServer()) {
+		String wsdlUrl = fixture.wsdlUrl();
 		WsdlInfo wsdlInfo = new WsdlInfo(wsdlUrl);
 		System.out.println("WSDL URL is " + wsdlInfo.getWsdlUrl());
 
@@ -50,6 +51,7 @@ public class SoapuiWsdl_Test {
 				System.out.println("operation response is ");
 				System.out.println(operation.getResponseXml());
 			}
+		}
 		}
 	}
 }
