@@ -19,7 +19,6 @@ package com.smartbear.soapui.template.wsdl;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 
@@ -64,7 +63,7 @@ public class WsdlRequestTestCaseTest {
         WsdlInterface[] ifaces = WsdlInterfaceFactory.importWsdl(project, WsdlRequestTestCaseTest.class.getResource("/wsdls/test1/TestService.wsdl").toExternalForm(),
                 true);
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
         server.createContext("/soap", exchange -> {
             byte[] body = "<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"><soap:Body/></soap:Envelope>".getBytes(StandardCharsets.UTF_8);
             exchange.getResponseHeaders().set("Content-Type", "text/xml; charset=UTF-8");

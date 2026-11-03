@@ -23,7 +23,6 @@ import com.eviware.soapui.model.iface.Submit;
 import org.junit.Test;
 
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 
@@ -78,7 +77,7 @@ public class WsdlImporterTestCaseTest {
 
         request.setRequestContent(requestXml);
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
         server.createContext("/", exchange -> {
             byte[] body = "Error 404 NOT_FOUND".getBytes(StandardCharsets.UTF_8);
             exchange.sendResponseHeaders(404, body.length);

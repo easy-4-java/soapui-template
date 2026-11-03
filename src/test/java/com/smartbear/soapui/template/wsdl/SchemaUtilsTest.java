@@ -21,7 +21,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Map;
 import java.util.Objects;
@@ -49,7 +48,7 @@ public class SchemaUtilsTest
 
     @BeforeClass
     public static void startFixtureServer() throws Exception {
-        fixtureServer = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        fixtureServer = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
         fixtureServer.createContext("/wsdls/", exchange -> {
             String path = exchange.getRequestURI().getPath();
             try (InputStream resource = SchemaUtilsTest.class.getResourceAsStream(path)) {

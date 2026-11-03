@@ -3,7 +3,6 @@ package com.smartbear.soapui.template;
 import com.sun.net.httpserver.HttpServer;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.charset.StandardCharsets;
 
@@ -12,7 +11,7 @@ final class LocalWsdlServer implements AutoCloseable {
     private final HttpServer server;
 
     LocalWsdlServer() throws Exception {
-        server = HttpServer.create(new InetSocketAddress(InetAddress.getLoopbackAddress(), 0), 0);
+        server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
         server.createContext("/wsdls/", exchange -> {
             String path = exchange.getRequestURI().getPath();
             try (InputStream resource = LocalWsdlServer.class.getResourceAsStream(path)) {
