@@ -353,7 +353,7 @@
 		<soapui.version>5.4.0</soapui.version>
 		<jsr173-api.version>1.0</jsr173-api.version>
 		<commons-lang3.version>3.20.0</commons-lang3.version>
-		<guava.version>33.7.2-jre</guava.version>
+		<guava.version>33.8.0-jre</guava.version>
 		<sac.version>1.3</sac.version>
 		<groovy.version>3.0.21</groovy.version>
 		<junit.version>4.13.2</junit.version>
@@ -541,7 +541,7 @@
         <htmlunit.version>2.33</htmlunit.version>
         <httpclient.version>4.5.14</httpclient.version>
         <httpcore.version>4.4.16</httpcore.version>
-        <guava.version>33.7.2-jre</guava.version>
+        <guava.version>33.8.0-jre</guava.version>
         <groovy.version>2.5.4</groovy.version>
         <log4j.version>1.2.14</log4j.version>
         <java.version>17</java.version>
